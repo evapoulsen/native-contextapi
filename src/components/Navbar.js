@@ -1,8 +1,13 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
 
+import { ThemeContext } from "../contexts/ThemeContext";
+
 class Navbar extends Component {
+    static contextType = ThemeContext;
+
     render() {
+        console.log(this.context);
         return (
             <View style={styles.headerContainer}>
                 <Text style={styles.headerText}>AWD | Elective Course at BTECH</Text>

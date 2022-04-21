@@ -4,23 +4,27 @@ import { View, Text, StyleSheet } from "react-native";
 import { ThemeContext } from "../contexts/ThemeContext";
 
 class Navbar extends Component {
-    static contextType = ThemeContext;
 
     render() {
         console.log(this.context);
-        const { isDarkTheme, darkTheme, lightTheme } = this.context;
-
-        const theme = isDarkTheme ? darkTheme : lightTheme;
         
         return (
-            <View style={[styles.headerContainer, theme]}>
-                <Text style={[styles.headerText, theme]}>AWD | Elective Course at BTECH</Text>
-                <View style={styles.headerTabContainer}>
-                    <Text style={styles.headerTab}>Overview</Text>
-                    <Text style={styles.headerTab}>Contact</Text>
-                    <Text style={styles.headerTab}>Support</Text>
-                </View>
-            </View>
+            <ThemeContext.Consumer>
+                {(context) => {
+                    const { isDarkTheme, darkTheme, lightTheme } = context;
+                    const theme = isDarkTheme ? darkTheme : lightTheme;
+                    return (
+                        <View style={[styles.headerContainer, theme]}>
+                            <Text style={[styles.headerText, theme]}>AWD | Elective Course at BTECH</Text>
+                            <View style={styles.headerTabContainer}>
+                                <Text style={styles.headerTab}>Overview</Text>
+                                <Text style={styles.headerTab}>Contact</Text>
+                                <Text style={styles.headerTab}>Support</Text>
+                            </View>
+                        </View>
+                    );
+                }}
+            </ThemeContext.Consumer>
         );
     }
 }

@@ -5,7 +5,7 @@ export const AuthContext = createContext();
 
 class AuthContextProvider extends Component {
     state = {
-        isLoggedIn: false
+        isLoggedIn: true
     };
 
     changeAuthStatus = () => {
@@ -15,7 +15,7 @@ class AuthContextProvider extends Component {
     render() {
         return (
             <AuthContext.Provider 
-                value={{...this.state, changeAuthStatues: this.changeAuthStatus}}
+                value={{...this.state, changeAuthStatus: this.changeAuthStatus}}
             >
                 {this.props.children}
             </AuthContext.Provider>

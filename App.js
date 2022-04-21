@@ -8,12 +8,12 @@ import AuthContextProvider from "./src/contexts/AuthContext";
 const App = () => {
   return (
     <View>
-      <ThemeContextProvider>
-        <AuthContextProvider>
+      <AuthContextProvider>
+        <ThemeContextProvider>
           <Navbar />
           <TodoList />
+        </ThemeContextProvider>
         </AuthContextProvider>
-      </ThemeContextProvider>
     </View>
   );
 }

@@ -5,11 +5,12 @@ class TodoList extends Component {
     render() {
         return (
             <View style={styles.todoContainer}>
-                <Text style={styles.item}>Define scope for project</Text>
+                <Text style={styles.item}>Define scope for the project</Text>
                 <Text style={styles.item}>Gather data and content</Text>
                 <Text style={styles.item}>Prepare design templates</Text>
-                <Text style={styles.item}>Perform design tests</Text>
                 <Text style={styles.item}>Go fo a walk and get some fresh air</Text>
+                <Text style={styles.item}>Perform design tests</Text>
+                <Text style={styles.item}>Add functionality</Text>
             </View>
         )
     }
@@ -17,7 +18,7 @@ class TodoList extends Component {
 
 const styles = StyleSheet.create({
     todoContainer: {
-        backgroundColor: 'dimgrey',
+        backgroundColor: '#848484',
         alignItems: 'center',
         justifyContent: 'space-around',
     },
@@ -29,3 +30,4 @@ const styles = StyleSheet.create({
 });
 
 export default TodoList;
+

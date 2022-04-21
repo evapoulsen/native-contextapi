@@ -6,7 +6,6 @@ import { ThemeContext } from "../contexts/ThemeContext";
 class Navbar extends Component {
 
     render() {
-        console.log(this.context);
         
         return (
             <ThemeContext.Consumer>

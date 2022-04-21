@@ -8,9 +8,13 @@ class Navbar extends Component {
 
     render() {
         console.log(this.context);
+        const { isDarkTheme, darkTheme, lightTheme } = this.context;
+
+        const theme = isDarkTheme ? darkTheme : lightTheme;
+        
         return (
-            <View style={styles.headerContainer}>
-                <Text style={styles.headerText}>AWD | Elective Course at BTECH</Text>
+            <View style={[styles.headerContainer, theme]}>
+                <Text style={[styles.headerText, theme]}>AWD | Elective Course at BTECH</Text>
                 <View style={styles.headerTabContainer}>
                     <Text style={styles.headerTab}>Overview</Text>
                     <Text style={styles.headerTab}>Contact</Text>

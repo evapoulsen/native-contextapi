@@ -1,16 +1,24 @@
 import React, { Component } from "react";
 import { View , Text, StyleSheet } from "react-native";
 
+import { ThemeContext } from "../contexts/ThemeContext";
+
 class TodoList extends Component {
+    static contextType = ThemeContext;
+
     render() {
+        const { isDarkTheme, darkTheme, lightTheme } = this.context;
+
+        const theme = isDarkTheme ? darkTheme : lightTheme;
+
         return (
-            <View style={styles.todoContainer}>
-                <Text style={styles.item}>Define scope for the project</Text>
-                <Text style={styles.item}>Gather data and content</Text>
-                <Text style={styles.item}>Prepare design templates</Text>
-                <Text style={styles.item}>Go fo a walk and get some fresh air</Text>
-                <Text style={styles.item}>Perform design tests</Text>
-                <Text style={styles.item}>Add functionality</Text>
+            <View style={[styles.todoContainer, theme]}>
+                <Text style={[styles.item, theme]}>Define scope for the project</Text>
+                <Text style={[styles.item, theme]}>Gather data and content</Text>
+                <Text style={[styles.item, theme]}>Prepare design templates</Text>
+                <Text style={[styles.item, theme]}>Go fo a walk and get some fresh air</Text>
+                <Text style={[styles.item, theme]}>Perform design tests</Text>
+                <Text style={[styles.item, theme]}>Add functionality</Text>
             </View>
         )
     }

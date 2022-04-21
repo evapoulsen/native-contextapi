@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View , Text, StyleSheet } from "react-native";
+import { View , Text, StyleSheet, TouchableOpacity } from "react-native";
 
 import { ThemeContext } from "../contexts/ThemeContext";
 
@@ -9,7 +9,7 @@ class TodoList extends Component {
         return (
             <ThemeContext.Consumer>
                 {(context) => {
-                    const { isDarkTheme, darkTheme, lightTheme } = context;
+                    const { isDarkTheme, darkTheme, lightTheme, changeTheme } = context;
                     const theme = isDarkTheme ? darkTheme : lightTheme;
                     return (
                         <View style={[styles.todoContainer, theme]}>
@@ -19,6 +19,12 @@ class TodoList extends Component {
                             <Text style={[styles.item, theme]}>Go fo a walk and get some fresh air</Text>
                             <Text style={[styles.item, theme]}>Perform design tests</Text>
                             <Text style={[styles.item, theme]}>Add functionality</Text>
+                            <TouchableOpacity 
+                                style={styles.buttonContainer}
+                                onPress={changeTheme}
+                                >
+                                <Text style={styles.buttonText}>Change Theme</Text>
+                            </TouchableOpacity>
                         </View>
                     );
                 }}
@@ -37,7 +43,18 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 16,
         paddingVertical: 12,
-    }
+    },
+    buttonContainer: {
+        backgroundColor: '#8258FA',
+        paddingVertical: 10,
+        width: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    buttonText: {
+        color: '#FFFFFF',
+        fontSize: 16,
+    },
 });
 
 export default TodoList;

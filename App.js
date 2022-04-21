@@ -13,7 +13,7 @@ const App = () => {
           <Navbar />
           <TodoList />
         </ThemeContextProvider>
-        </AuthContextProvider>
+      </AuthContextProvider>
     </View>
   );
 }
